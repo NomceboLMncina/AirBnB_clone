@@ -22,7 +22,7 @@ class BaseModel:
             **kwargs (dict): Key/value pairs of attributes, used for
             Initializing the instance with specific data.
         """
-        format = "%Y-%m-%dT%H:%M:%S.%f"
+        forma_t = "%Y-%m-%dT%H:%M:%S.%f"
         self.id = str(uuid4())
         self.created_at = datetime.today()
         self.updated_at = datetime.today()
