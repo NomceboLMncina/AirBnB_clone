@@ -2,7 +2,8 @@
 """Defines unit tests for the BaseModel class in models/base_model.py.
 
 Test cases include:
-    TestBaseModelInstantiation: Verifies correct instantiation of BaseModel instances.
+    TestBaseModelInstantiation: Verifies correct instantiation
+    of BaseModel instances.
     TestBaseModelSave: Tests the functionality of the save method.
     TestBaseModelToDict: Validates the behavior of the to_dict method.
 """
@@ -191,4 +192,3 @@ class TestBaseModel_to_dict(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-
