@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+
 """Defines unit tests for the User class in the models/user.py module.
 Test classes:
     TestUserInstantiation: Tests for correct instantiation of User objects.
@@ -80,8 +81,7 @@ class TestUser_instantiation(unittest.TestCase):
     def test_instantiation_with_kwargs(self):
         current_time = datetime.today()
         current_time_iso = current_time.isoformat()
-        user_instance = User(id="345", created_at=current_time_iso,
-                                updated_at=current_time_iso)
+        user_instance = User(id="345", created_at=current_time_iso, updated_at=current_time_iso)
         self.assertEqual(user_instance.id, "345")
         self.assertEqual(user_instance.created_at, current_time)
         self.assertEqual(user_instance.updated_at, current_time)
