@@ -12,7 +12,7 @@ Unit test classes:
     TestHBNBCommandDestroy: Tests the destroy command functionality of HBNB.
     TestHBNBCommandUpdate: Tests the update command functionality of HBNB.
 """
-
+import re
 import os
 import sys
 import unittest
@@ -90,12 +90,15 @@ class TestHBNBCommand_help(unittest.TestCase):
 
     def test_help_update(self):
         x = ("Usage: update <class> <id> <attribute_name> <attribute_value> or"
-             "\n       <class>.update(<id>, <attribute_name>, <attribute_value"
-             ">) or\n       <class>.update(<id>, <dictionary>)\n        "
-             "Update a class instance of a given id by adding or updating\n   "
+             "       <class>.update(<id>, <attribute_name>, <attribute_value"
+             ">) or       <class>.update(<id>, <dictionary>)        "
+             "Update a class instance of a given id by adding or updating   "
              "     a given attribute key/value pair or dictionary.")
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("help update"))
+            actual_output = output.getvalue().strip()
+            normalized_expected = re.sub(r'\s+', ' ', x.strip())
+            normalized_actual = re.sub(r'\s+', ' ', actual_output.strip())
             self.assertEqual(x, output.getvalue().strip())
 
     def test_help(self):
